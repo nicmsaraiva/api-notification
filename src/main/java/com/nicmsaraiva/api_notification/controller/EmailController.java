@@ -34,7 +34,7 @@ public class EmailController {
         }
     }
 
-    @GetMapping("/email")
+    @GetMapping("/emails")
     public ResponseEntity<List<ReadEmailDTO>> getEmails() {
         return ResponseEntity.ok(service.getEmails().stream().map(ReadEmailDTO::new).toList());
     }

@@ -1,17 +1,11 @@
 package com.nicmsaraiva.api_notification.domain;
 
 import com.nicmsaraiva.api_notification.dto.email.CreateEmailDTO;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,17 +15,11 @@ import java.util.Date;
 @Table(name = "emails")
 public class EmailNotification {
     @Id
-    @NotBlank
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    private Date date;
-
-    @Email
-    @NotBlank
+    private String date;
     private String email;
-
-    @NotBlank
     private String content;
 
     public EmailNotification(CreateEmailDTO emailDTO) {
