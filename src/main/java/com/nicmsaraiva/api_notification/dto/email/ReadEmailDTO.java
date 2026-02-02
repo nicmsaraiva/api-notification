@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -14,13 +14,15 @@ import java.util.Date;
 @NoArgsConstructor
 public class ReadEmailDTO {
     private Long id;
-    private String date;
+    private String subject;
+    private LocalDateTime sentDate;
     private String email;
     private String content;
 
     public ReadEmailDTO(EmailNotification emailNotification) {
         this.id = emailNotification.getId();
-        this.date = emailNotification.getDate();
+        this.subject = emailNotification.getSubject();
+        this.sentDate = emailNotification.getSentDate();
         this.email = emailNotification.getEmail();
         this.content = emailNotification.getContent();
     }

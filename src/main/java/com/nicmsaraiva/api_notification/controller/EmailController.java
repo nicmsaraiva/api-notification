@@ -30,7 +30,7 @@ public class EmailController {
             service.save(createEmailDTO);
             return new ResponseEntity<>("Email notification created!", HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<String>("Failed to create a email notification!", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Failed to create a email notification!", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
