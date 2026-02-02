@@ -1,6 +1,6 @@
 package com.nicmsaraiva.api_notification.dto.email;
 
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -19,21 +19,20 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class CreateEmailDTO {
     @NotBlank(message = "Subject cannot be blank")
-    @Size(min = 10, message = "Subject must be have minimum 10 characters")
-    @Size(max = 100, message = "Subject must be have maximum 100 characters")
+    @Size(min = 10, max = 100, message = "Subject must be between 10 and 100 characters")
     private String subject;
 
     @NotNull(message = "Sent date cannot be null")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME, pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private LocalDateTime sentDate;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate sentDate;
 
     @Email(message = "Invalid email format")
     @NotBlank(message = "Email cannot be blank")
-    @Size(min = 10, message = "Email must be have minimum 10 characters")
-    @Size(max = 50, message = "Email must be have maximum 50 characters")
+    @Size(min = 10, max = 50, message = "Email must be between 10 and 50 characters")
     private String email;
 
     @NotBlank(message = "Content cannot be blank")
-    @Size(max = 500, message = "Content must be have maximum 500 characters")
+    @Size(max = 500, message = "Content must be at most 500 characters")
     private String content;
 }

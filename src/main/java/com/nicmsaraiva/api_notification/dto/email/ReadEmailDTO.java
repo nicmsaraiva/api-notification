@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 public class ReadEmailDTO {
     private Long id;
     private String subject;
-    private LocalDateTime sentDate;
+    private LocalDate sentDate;
     private String email;
     private String content;
 
