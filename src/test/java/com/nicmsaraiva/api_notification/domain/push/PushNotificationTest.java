@@ -2,7 +2,7 @@ package com.nicmsaraiva.api_notification.domain.push;
 
 import com.nicmsaraiva.api_notification.domain.EmailNotification;
 import com.nicmsaraiva.api_notification.dto.email.CreateEmailDTO;
-import com.nicmsaraiva.api_notification.enums.EmailStatus;
+import com.nicmsaraiva.api_notification.enums.MessageStatus;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -24,6 +24,6 @@ class PushNotificationTest {
         assertEquals("user@example.com", entity.getEmail());
         assertEquals("Hello content", entity.getContent());
         assertNotNull(entity.getCreatedDate());
-        assertEquals(EmailStatus.CREATED, entity.getStatus());
+        assertEquals(MessageStatus.CREATED, entity.getStatus());
     }
 }
