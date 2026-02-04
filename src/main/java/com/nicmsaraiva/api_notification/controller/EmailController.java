@@ -16,7 +16,6 @@ import java.util.List;
 @Validated
 @RequestMapping("/notifications")
 public class EmailController {
-
     private final EmailService service;
 
     @Autowired

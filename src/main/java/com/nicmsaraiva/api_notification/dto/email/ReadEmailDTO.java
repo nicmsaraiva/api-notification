@@ -1,13 +1,13 @@
 package com.nicmsaraiva.api_notification.dto.email;
 
 import com.nicmsaraiva.api_notification.domain.EmailNotification;
+import com.nicmsaraiva.api_notification.enums.MessageStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -19,6 +19,7 @@ public class ReadEmailDTO {
     private LocalDate sentDate;
     private String email;
     private String content;
+    private MessageStatus status;
 
     public ReadEmailDTO(EmailNotification emailNotification) {
         this.id = emailNotification.getId();
@@ -26,5 +27,6 @@ public class ReadEmailDTO {
         this.sentDate = emailNotification.getSentDate();
         this.email = emailNotification.getEmail();
         this.content = emailNotification.getContent();
+        this.status = emailNotification.getStatus();
     }
 }

@@ -1,6 +1,6 @@
 package com.nicmsaraiva.api_notification.enums;
 
-public enum EmailStatus {
+public enum MessageStatus {
     CREATED,
     SENT,
     FAILED,

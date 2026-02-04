@@ -1,13 +1,12 @@
 package com.nicmsaraiva.api_notification.domain;
 
 import com.nicmsaraiva.api_notification.dto.email.CreateEmailDTO;
-import com.nicmsaraiva.api_notification.enums.EmailStatus;
+import com.nicmsaraiva.api_notification.enums.MessageStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -29,7 +28,7 @@ public class EmailNotification {
     private String email;
     private String content;
     @Enumerated(EnumType.STRING)
-    private EmailStatus status;
+    private MessageStatus status;
 
     public EmailNotification(CreateEmailDTO emailDTO) {
         this.subject = emailDTO.getSubject();
@@ -37,6 +36,6 @@ public class EmailNotification {
         this.sentDate = emailDTO.getSentDate();
         this.email = emailDTO.getEmail();
         this.content = emailDTO.getContent();
-        this.status = EmailStatus.CREATED;
+        this.status = MessageStatus.CREATED;
     }
 }
