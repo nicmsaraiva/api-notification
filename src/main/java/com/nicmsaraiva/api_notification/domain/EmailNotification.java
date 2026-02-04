@@ -7,7 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.cglib.core.Local;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
@@ -23,7 +25,7 @@ public class EmailNotification {
 
     private String subject;
     private LocalDateTime createdDate;
-    private LocalDateTime sentDate;
+    private LocalDate sentDate;
     private String email;
     private String content;
     @Enumerated(EnumType.STRING)
